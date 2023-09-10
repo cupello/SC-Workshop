@@ -18,7 +18,7 @@ jobs:
       uses: aquasecurity/trivy-action@master
       with:
         scan-type: "fs"
-        format: 'table'
+        format: 'sarif'
         ignore-unfixed: true
         scanners: 'vuln'
         exit-code: '0'
