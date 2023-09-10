@@ -3,9 +3,9 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
+permissions:
+  security-events: write
+  
 jobs:
   build:
     name: Vulnerabilities-Scanner
@@ -21,5 +21,11 @@ jobs:
         format: 'table'
         ignore-unfixed: true
         scanners: 'vuln'
-        exit-code: '1'
+        exit-code: '0'
         severity: 'CRITICAL,HIGH,MEDIUM'
+        output: 'trivy-results.sarif'
+    - name: Upload Trivy scan results to GitHub Security tab
+      uses: github/codeql-action/upload-sarif@v2
+      with:
+        sarif_file: 'trivy-results.sarif'
+        category: Trivy
