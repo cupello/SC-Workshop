@@ -60,7 +60,7 @@
       "/usr/bin/docker",
       "run",
       "--name",
-      "ghcrioactionsjekyllbuildpagesv108_e31f7e",
+      "ghcrioactionsjekyllbuildpagesv108_cd852a",
       "--label",
       "94351b",
       "--workdir",
